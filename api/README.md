@@ -39,6 +39,11 @@ If Step 2 does not work, please create the db manually via psql
 
 - With future performance in mind, we are using yarn. So please utilize `yarn add <package>` for adding packages or `yarn add <package> -D` to add dev dependencies.
 
+## View Swagger documentation
+
+- To access the OpenSpec API documentation via Swagger, please start the server and access
+   `http://localhost:3000/api-docs/swagger/`
+
 ## Typescript
 
 - We are using Typescript in strict mode. With `yarn build`, `yarn start` or `yarn dev` Typescript will compile and output into dist.
