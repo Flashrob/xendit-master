@@ -1,0 +1,4 @@
+postgres:
+  db: xendit
+  user: postgres
+  pwd: postgres

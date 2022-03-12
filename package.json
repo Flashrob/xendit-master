@@ -1,0 +1,21 @@
+{
+  "name": "xendit-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev-api": "yarn --cwd api/ dev",
+    "build-api": "yarn --cwd api/ build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flashrob/xendit-master.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Flashrob/xendit-master/issues"
+  },
+  "homepage": "https://github.com/Flashrob/xendit-master#readme"
+}

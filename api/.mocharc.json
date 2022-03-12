@@ -1,0 +1,7 @@
+{
+    "exit": true,
+    "file": ["dist/test/test.js"],
+    "require": ["reflect-metadata"],
+    "spec": ["dist/src/**/test/*.integration.js"],
+    "timeout": 300000
+}
