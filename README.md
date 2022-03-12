@@ -18,10 +18,12 @@
 
 2. Install dependencies
    - API: `cd api` and run `yarn`
+   - Shop: `cd shop` and run `yarn`
 
 ## Further Setup
 
-1. Please check `https://github.com/Flashrob/xendit-master/tree/master/api#readme`
+1. Please check for API `https://github.com/Flashrob/xendit-master/tree/master/api#readme`
+2. Please check for shop `https://github.com/Flashrob/xendit-master/tree/master/shop#readme`
 
 ## Local development
 
@@ -29,6 +31,14 @@
    `yarn dev-api`
 2. To build the API
    `yarn build-api`
+
+3. To run the shop
+   `yarn dev-shop`
+4. To build the shop
+   `yarn build-shop`
+
+5. To run API and shop concurrently
+   `yarn dev`
 
 ## Managing dependencies
 
