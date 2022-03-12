@@ -4,4 +4,6 @@ export const Types = {
 
   // Category
   PersistenceCategory: 'PersistenceCategory',
+  CategoryController: 'CategoryController',
+  CategoryService: 'CategoryService',
 };
