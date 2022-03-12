@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev-api": "yarn --cwd api/ dev",
-    "build-api": "yarn --cwd api/ build"
+    "build-api": "yarn --cwd api/ build",
+    "dev-shop": "yarn --cwd shop/ dev",
+    "build-shop": "yarn --cwd shop/ build",
+    "dev": "concurrently --kill-others \"yarn dev-api\" \"yarn dev-shop\""
   },
   "repository": {
     "type": "git",
@@ -17,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Flashrob/xendit-master/issues"
   },
-  "homepage": "https://github.com/Flashrob/xendit-master#readme"
+  "homepage": "https://github.com/Flashrob/xendit-master#readme",
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
 }
