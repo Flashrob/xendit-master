@@ -8,13 +8,13 @@ import * as swagger from 'swagger-express-ts';
 import { createSequelizeInstance } from './config/sequelize';
 import SequelizeService from './services/SequelizeService';
 import { swaggerOptions } from './services/swaggerOptions';
-import { container as ExampleContainer } from './src/Example/index';
+import { container } from './src/inversify';
 
 const sequelize = createSequelizeInstance();
 
 SequelizeService.start(sequelize);
 
-const server = new InversifyExpressServer(ExampleContainer);
+const server = new InversifyExpressServer(container);
 
 server.setConfig((app) => {
   app.use(bodyParser.json());
