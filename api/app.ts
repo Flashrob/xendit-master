@@ -5,8 +5,14 @@ import express from 'express';
 import { InversifyExpressServer } from 'inversify-express-utils';
 import * as swagger from 'swagger-express-ts';
 
+import { createSequelizeInstance } from './config/sequelize';
+import SequelizeService from './services/SequelizeService';
 import { swaggerOptions } from './services/swaggerOptions';
 import { container as ExampleContainer } from './src/Example/index';
+
+const sequelize = createSequelizeInstance();
+
+SequelizeService.start(sequelize);
 
 const server = new InversifyExpressServer(ExampleContainer);
 
@@ -26,4 +32,4 @@ const app = server.build();
 app.listen(3000, 'localhost');
 console.log('Server started!');
 
-export { app };
+export { app, sequelize };
