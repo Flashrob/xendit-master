@@ -36,7 +36,7 @@ export class CategoryController implements interfaces.Controller {
     },
   })
   @httpGet('/')
-  private index(
+  private getCategories(
     @request() _req: express.Request,
     @response() _res: express.Response,
   ): Promise<Category[]> {
