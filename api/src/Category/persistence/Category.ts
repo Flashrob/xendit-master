@@ -2,11 +2,14 @@ import {
   AllowNull,
   Column,
   DataType,
+  HasMany,
   Model,
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 import { ApiModel, ApiModelProperty } from 'swagger-express-ts';
+
+import Product from '../../Product/persistence/Product';
 
 @ApiModel({
   description: 'Category model',
@@ -50,6 +53,9 @@ class Category extends Model {
     required: true,
   })
   updatedAt!: Date;
+
+  @HasMany(() => Product)
+  Products!: Product[];
 }
 
 export default Category;
