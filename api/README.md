@@ -25,6 +25,7 @@
 2. Create a new DB by running `createdb <DB name> -U <your username>`
 3. Add your credentials to the `local.yml` files
 4. Run `CREATE EXTENSION pgcrypto;` in psql
+5. Exist psql and run `yarn migrate up` once your DB is setup and the credential files are in order
 
 If Step 2 does not work, please create the db manually via psql
 
@@ -42,11 +43,11 @@ If Step 2 does not work, please create the db manually via psql
 ## View Swagger documentation
 
 - To access the OpenSpec API documentation via Swagger, please start the server and access
-   `http://localhost:3000/api-docs/swagger/`
+   `http://localhost:3000/api-docs/swagger`
 
 ## Typescript
 
-- We are using Typescript in strict mode. With `yarn build`, `yarn start` or `yarn dev` Typescript will compile and output into dist.
+- We are using Typescript in strict mode. With `yarn build`, `yarn start` or `yarn dev` Typescript will compile and output into dist/.
 - The entrypoint for our app is `dist/src/app.js`.
 
 - More configuration can be found in `tsconfig.json` and `package.json`
@@ -76,7 +77,8 @@ If Step 2 does not work, please create the db manually via psql
 - To run specific tests
     `yarn test -g 'testName'`
 
-
+- To check test coverage
+   `yarn coverage`
 # Authors
 
 - Robert Kolsek
