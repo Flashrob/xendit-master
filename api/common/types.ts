@@ -11,4 +11,7 @@ export const Types = {
   PersistenceProduct: 'PersistenceProduct',
   ProductController: 'ProductControler',
   ProductService: 'ProductService',
+
+  // Order
+  PersistenceOrder: 'PersistenceOrder',
 };
