@@ -14,4 +14,5 @@ export const Types = {
 
   // Order
   PersistenceOrder: 'PersistenceOrder',
+  OrderController: 'OrderController',
 };

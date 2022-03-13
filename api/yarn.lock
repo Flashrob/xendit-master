@@ -2983,7 +2983,7 @@ range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-raw-body@2.4.3, raw-body@~2.4.1:
+raw-body@2.4.3:
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/raw-body/-/raw-body-2.4.3.tgz#8f80305d11c2a0a545c2d9d89d7a0286fcead43c"
   integrity sha512-UlTNLIcu0uzb4D2f4WltY6cVjLi+/jEN4lgEUj3E04tpMDpUlkBo/eSn6zou9hum2VMNpCCUone0O0WeJim07g==
@@ -3364,12 +3364,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-sql-injection@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/sql-injection/-/sql-injection-0.0.7.tgz#9de69be5a3cfe73604ceb1cfffa56fb6e3e6c669"
-  integrity sha512-BVD1P9lmMfidZRdghbFIU/yMNJhI1EO2j91TPatTJF3qddiakrsXKPxKZ0RjoJgqB/2HkMojGIUWO/6LgeCQMw==
-  dependencies:
-    raw-body "~2.4.1"
+sql-sanitizer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/sql-sanitizer/-/sql-sanitizer-1.0.0.tgz#b2a336721a27947bce5da48bdcbd845d432b4b14"
+  integrity sha512-giGnZrpl5GvgrVFFxWVTxBR2TyL2whrgclUH4YOY5EVOgdNB8F8sbSM9FPDvAWpJaLCcmwJciM2VIH1+aMkmdw==
 
 "statuses@>= 1.5.0 < 2", statuses@~1.5.0:
   version "1.5.0"
