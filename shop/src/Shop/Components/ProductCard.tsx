@@ -23,11 +23,38 @@ const Price = styled.p`
   font-size: 16px;
 `;
 
-export const ProductCard = ({ product }: { product: Product }) => {
+const AddToCartButton = styled.button`
+  background-color: #4373fc;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 18px 25px;
+  font-size: 16px;
+
+  &:hover {
+    transform: scale(0.97);
+    box-shadow: 0 3px 6px 0 rgb(26 51 130 / 20%);
+  }
+`;
+
+export const ProductCard = ({
+  product,
+  cartProducts,
+  setCartProducts,
+}: {
+  product: Product;
+  cartProducts: Product[];
+  setCartProducts: (input: unknown) => void;
+}) => {
   return (
     <CardContainer>
       <Header>{product.name}</Header>
       <Price>{`SGD $${product.price}`}</Price>
+      <AddToCartButton
+        onClick={() => setCartProducts([...cartProducts, product])}
+      >
+        Add To Cart
+      </AddToCartButton>
     </CardContainer>
   );
 };

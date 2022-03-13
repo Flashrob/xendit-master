@@ -1,6 +1,7 @@
 import { Product } from '../../common/models/Product';
 import { ProductCard } from './ProductCard';
 import styled from 'styled-components';
+import { useLocalStorage } from '../../common/hooks/useLocalStorage';
 
 const Container = styled.div`
   margin: 20px auto;
@@ -18,12 +19,28 @@ const Container = styled.div`
   }
 `;
 
-const makeProductCards = (products: Product[]) => {
-  return products.map((product) => <ProductCard product={product} />);
+const makeProductCards = (
+  products: Product[],
+  cartProducts: Product[],
+  setCartProducts: (input: unknown) => void,
+) => {
+  return products.map((product) => (
+    <ProductCard
+      key={product.name}
+      product={product}
+      cartProducts={cartProducts}
+      setCartProducts={setCartProducts}
+    />
+  ));
 };
 
 export const ProductList = ({ products }: { products: Product[] }) => {
+  const [cartProducts, setCartProducts] = useLocalStorage('products', []);
   if (!products.length) return null;
-  const productCards = makeProductCards(products);
+  const productCards = makeProductCards(
+    products,
+    cartProducts,
+    setCartProducts,
+  );
   return <Container>{productCards}</Container>;
 };
