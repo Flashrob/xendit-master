@@ -1,29 +1,30 @@
 import {
   AllowNull,
+  BelongsTo,
   Column,
   DataType,
-  HasMany,
+  ForeignKey,
   Model,
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 import { ApiModel, ApiModelProperty } from 'swagger-express-ts';
 
-import Product from '../../Product/persistence/Product';
+import Category from '../../Category/persistence/Category';
 
 @ApiModel({
-  description: 'Category model',
-  name: 'Category',
+  description: 'Product model',
+  name: 'Product',
 })
 @Table({
   schema: 'public',
 })
-class Category extends Model {
+class Product extends Model {
   @PrimaryKey
   @AllowNull(false)
   @Column(DataType.INTEGER)
   @ApiModelProperty({
-    description: 'Id of a category',
+    description: 'Id of a product',
     required: true,
     example: 1,
   })
@@ -32,11 +33,20 @@ class Category extends Model {
   @AllowNull(false)
   @Column(DataType.STRING)
   @ApiModelProperty({
-    description: 'name of a category',
+    description: 'name of a product',
     required: true,
-    example: 'cables',
+    example: 'Playstation 5',
   })
   name!: string;
+
+  @AllowNull(false)
+  @Column(DataType.INTEGER)
+  @ApiModelProperty({
+    description: 'Price of a product in SGD',
+    required: true,
+    example: 200,
+  })
+  price!: number;
 
   @AllowNull(false)
   @Column(DataType.DATE)
@@ -54,8 +64,17 @@ class Category extends Model {
   })
   updatedAt!: Date;
 
-  @HasMany(() => Product)
-  Products!: Product[];
+  @AllowNull(false)
+  @ForeignKey(() => Category)
+  @Column(DataType.INTEGER)
+  @ApiModelProperty({
+    description: 'Id of a category',
+    required: true,
+  })
+  CategoryId!: number;
+
+  @BelongsTo(() => Category)
+  Category!: Category;
 }
 
-export default Category;
+export default Product;
