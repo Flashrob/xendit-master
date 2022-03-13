@@ -61,8 +61,11 @@ export const CartItem = ({
         <ItemSpan>Product: {product.name}</ItemSpan>
         <ItemSpan>Price: {product.price}</ItemSpan>
         <ItemSpan>Quantity: {quantity}</ItemSpan>
-        <RemoveButton onClick={() => removeCartItem(product.id)}>Remove</RemoveButton>
+        <RemoveButton onClick={() => removeCartItem(product.id)}>
+          Remove
+        </RemoveButton>
       </ItemWrapper>
+
     </Container>
   );
 };
