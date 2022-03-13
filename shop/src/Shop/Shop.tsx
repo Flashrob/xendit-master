@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { makeCategoryDropdownOptions, useCategories } from './categories';
+import { ProductList } from './Components/ProductList';
 import { useProducts } from './products';
 import { Container, Headline, Title, Paragraph, Select } from './Shop.sc';
 
@@ -30,14 +31,7 @@ export const Shop = () => {
   );
 
   if (!categories.length || !products)
-    return (
-      <Container>
-        <Headline>
-          <Title>XenElectronic Shop</Title>
-          <Paragraph>Loading...</Paragraph>
-        </Headline>
-      </Container>
-    );
+    return null;
 
   return (
     <Container>
@@ -51,7 +45,7 @@ export const Shop = () => {
       >
         {categoryOptions}
       </Select>
-      {products && products.map((product) => <p>{product.name}</p>)}
+      <ProductList products={products} />
     </Container>
   );
 };

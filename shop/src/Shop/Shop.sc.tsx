@@ -5,6 +5,7 @@ const Container = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 `;
 
 const Headline = styled.div`
