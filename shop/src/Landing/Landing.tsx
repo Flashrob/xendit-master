@@ -4,7 +4,7 @@ export const Landing = () => {
   return (
     <Container>
       <Headline>
-        <Title>Welcome to the XenElectronics Shop!</Title>
+        <Title>Welcome to our Shop!</Title>
       </Headline>
       <Content>
         <Button href='/shop'>Go to shop</Button>

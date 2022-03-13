@@ -4,7 +4,6 @@ const Headline = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30%;
   flex-direction: column;
   width: 100%;
 `;
@@ -13,7 +12,7 @@ const Title = styled.h1`
   color: #ffffff;
 `;
 const Container = styled.div`
-  margin: 20px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   width: 100%;
