@@ -27,6 +27,7 @@
     "pre-push": "^0.1.1"
   },
   "pre-push": [
+    "build-api",
     "test-api"
   ]
 }
