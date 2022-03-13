@@ -1,6 +1,5 @@
 import { Product } from '../../common/models/Product';
 import styled from 'styled-components';
-import { useLocalStorage } from '../../common/hooks/useLocalStorage';
 
 const CardContainer = styled.div`
   width: fit-content;
