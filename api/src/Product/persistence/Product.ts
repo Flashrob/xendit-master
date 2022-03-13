@@ -9,18 +9,18 @@ import {
 import { ApiModel, ApiModelProperty } from 'swagger-express-ts';
 
 @ApiModel({
-  description: 'Category model',
-  name: 'Category',
+  description: 'Product model',
+  name: 'Product',
 })
 @Table({
   schema: 'public',
 })
-class Category extends Model {
+class Product extends Model {
   @PrimaryKey
   @AllowNull(false)
   @Column(DataType.INTEGER)
   @ApiModelProperty({
-    description: 'Id of a category',
+    description: 'Id of a product',
     required: true,
     example: 1,
   })
@@ -29,11 +29,20 @@ class Category extends Model {
   @AllowNull(false)
   @Column(DataType.STRING)
   @ApiModelProperty({
-    description: 'name of a category',
+    description: 'name of a product',
     required: true,
-    example: 'cables',
+    example: 'Playstation 5',
   })
   name!: string;
+
+  @AllowNull(false)
+  @Column(DataType.INTEGER)
+  @ApiModelProperty({
+    description: 'Price of a product in SGD',
+    required: true,
+    example: 200,
+  })
+  price!: number;
 
   @AllowNull(false)
   @Column(DataType.DATE)
@@ -52,4 +61,4 @@ class Category extends Model {
   updatedAt!: Date;
 }
 
-export default Category;
+export default Product;
