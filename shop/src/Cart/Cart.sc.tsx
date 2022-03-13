@@ -40,4 +40,9 @@ const Content = styled.div`
   width: 100%;
 `;
 
-export { Container, Headline, Title, Paragraph, Total, Content };
+const NoItems = styled.div`
+  text-align: center;
+  color: #ffffff;
+`;
+
+export { Container, Headline, Title, Paragraph, Total, Content, NoItems };
