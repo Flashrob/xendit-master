@@ -6,13 +6,14 @@ import {
   Total,
   Paragraph,
   Content,
+  NoItems,
 } from './Cart.sc';
 import { makeCartItems } from './makeCartItems';
 
 export const Cart = () => {
-  const [cartProducts] = useLocalStorage('products', []);
+  const [cartProducts, setCartProducts] = useLocalStorage('products', []);
 
-  const [cartItems, totalBill] = makeCartItems(cartProducts);
+  const [cartItems, totalBill] = makeCartItems(cartProducts, setCartProducts);
   return (
     <Container>
       <Headline>
@@ -20,8 +21,13 @@ export const Cart = () => {
         <Paragraph>Please check your items before checking out</Paragraph>
       </Headline>
       <Content>
-        <div>{cartItems}</div>
-        <Total>Total: {totalBill}</Total>
+        {cartItems && (
+          <>
+            <div>{cartItems}</div>
+            <Total>Total: {totalBill}</Total>
+          </>
+        )}
+        {!cartItems && <NoItems>No items in cart</NoItems>}
       </Content>
     </Container>
   );
