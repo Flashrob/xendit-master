@@ -1,5 +1,5 @@
 import * as express from 'express';
-// import { inject } from 'inversify';
+import { inject } from 'inversify';
 import {
   controller,
   httpGet,
@@ -13,8 +13,9 @@ import {
   SwaggerDefinitionConstant,
 } from 'swagger-express-ts';
 
-// import { Types } from '../../common/types';
-// import Product from './persistence/Product';
+import { Types } from '../../common/types';
+import Product from './persistence/Product';
+import { ProductService } from './ProductService';
 
 @ApiPath({
   path: '/products',
@@ -22,6 +23,8 @@ import {
 })
 @controller('/products')
 export class ProductController implements interfaces.Controller {
+  @inject(Types.ProductService) private productService!: ProductService;
+
   @ApiOperationGet({
     description: 'GET to retrieve all products by CategoryId',
     summary: 'GET products by CategoryId',
@@ -33,12 +36,14 @@ export class ProductController implements interfaces.Controller {
     },
   })
   @httpGet('/:CategoryId')
-  private getCategories(
+  private async getProductsByCategoryId(
     @request() req: express.Request,
     @response() _res: express.Response,
-  ) {
+  ): Promise<Product[]> {
     const { CategoryId } = req.params;
     if (!CategoryId) throw new Error('Please provide a valid id');
-    return '';
+    return await this.productService.getProductsByCategoryId(
+      Number(CategoryId),
+    );
   }
 }
