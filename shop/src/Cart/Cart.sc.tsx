@@ -28,12 +28,12 @@ const Paragraph = styled.p`
 
 const Total = styled.div`
   display: flex;
-  float: right;
   justify-content: center;
   color: white;
   font-size: 25px;
   font-weight: 700;
   margin-right: 10%;
+  float: right;
 `;
 
 const Content = styled.div`
@@ -45,4 +45,22 @@ const NoItems = styled.div`
   color: #ffffff;
 `;
 
-export { Container, Headline, Title, Paragraph, Total, Content, NoItems };
+const CheckoutButton = styled.button`
+  background-color: #00D098;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 18px 25px;
+  font-size: 16px;
+
+  &:hover {
+    transform: scale(0.97);
+    box-shadow: 0 3px 6px 0 rgb(26 51 130 / 20%);
+  }
+
+  display: block;
+  float: right;
+  margin-right: 10%;
+`;
+
+export { Container, Headline, Title, Paragraph, Total, Content, NoItems, CheckoutButton };
