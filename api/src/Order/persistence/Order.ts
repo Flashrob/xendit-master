@@ -1,5 +1,6 @@
 import {
   AllowNull,
+  BelongsToMany,
   Column,
   DataType,
   Model,
@@ -7,6 +8,9 @@ import {
   Table,
 } from 'sequelize-typescript';
 import { ApiModel, ApiModelProperty } from 'swagger-express-ts';
+
+import Product from '../../Product/persistence/Product';
+import OrderProduct from './OrderProduct';
 
 @ApiModel({
   description: 'Order model',
@@ -41,6 +45,9 @@ class Order extends Model {
     required: true,
   })
   updatedAt!: Date;
+
+  @BelongsToMany(() => Product, () => OrderProduct)
+  Products!: Product[];
 }
 
 export default Order;

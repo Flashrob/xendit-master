@@ -1,7 +1,5 @@
 import {
   AllowNull,
-  BelongsTo,
-  BelongsToMany,
   Column,
   DataType,
   ForeignKey,
@@ -11,45 +9,47 @@ import {
 } from 'sequelize-typescript';
 import { ApiModel, ApiModelProperty } from 'swagger-express-ts';
 
-import Category from '../../Category/persistence/Category';
 import Order from '../../Order/persistence/Order';
-import OrderProduct from '../../Order/persistence/OrderProduct';
+import Product from '../../Product/persistence/Product';
 
 @ApiModel({
-  description: 'Product model',
-  name: 'Product',
+  description: 'OrderProduct model',
+  name: 'OrderProduct',
 })
 @Table({
   schema: 'public',
 })
-class Product extends Model {
+class OrderProduct extends Model {
   @PrimaryKey
+  @ForeignKey(() => Order)
   @AllowNull(false)
   @Column(DataType.INTEGER)
   @ApiModelProperty({
-    description: 'Id of a product',
+    description: 'id of an Order',
     required: true,
     example: 1,
   })
-  id!: number;
+  OrderId!: number;
 
+  @PrimaryKey
+  @ForeignKey(() => Product)
   @AllowNull(false)
-  @Column(DataType.STRING)
+  @Column(DataType.INTEGER)
   @ApiModelProperty({
-    description: 'name of a product',
+    description: 'id of a Product',
     required: true,
-    example: 'Playstation 5',
+    example: 1,
   })
-  name!: string;
+  ProductId!: number;
 
   @AllowNull(false)
   @Column(DataType.INTEGER)
   @ApiModelProperty({
-    description: 'Price of a product in SGD',
+    description: 'quantity of the associated product',
     required: true,
-    example: 200,
+    example: 5,
   })
-  price!: number;
+  quantity!: number;
 
   @AllowNull(false)
   @Column(DataType.DATE)
@@ -66,21 +66,6 @@ class Product extends Model {
     required: true,
   })
   updatedAt!: Date;
-
-  @AllowNull(false)
-  @ForeignKey(() => Category)
-  @Column(DataType.INTEGER)
-  @ApiModelProperty({
-    description: 'Id of a category',
-    required: true,
-  })
-  CategoryId!: number;
-
-  @BelongsTo(() => Category)
-  Category!: Category;
-
-  @BelongsToMany(() => Order, () => OrderProduct)
-  Orders!: Order[];
 }
 
-export default Product;
+export default OrderProduct;
