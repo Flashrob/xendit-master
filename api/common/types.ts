@@ -9,4 +9,5 @@ export const Types = {
 
   // Product
   PersistenceProduct: 'PersistenceProduct',
+  ProductController: 'ProductControler',
 };
