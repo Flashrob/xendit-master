@@ -1,5 +1,6 @@
 import { Product } from '../../common/models/Product';
 import styled from 'styled-components';
+import { useLocalStorage } from '../../common/hooks/useLocalStorage';
 
 const CardContainer = styled.div`
   width: fit-content;
@@ -23,9 +24,17 @@ const Price = styled.p`
   font-size: 16px;
 `;
 
-export const ProductCard = ({ product }: { product: Product }) => {
+export const ProductCard = ({
+  product,
+  cartProducts,
+  setCartProducts,
+}: {
+  product: Product;
+  cartProducts: Product[];
+  setCartProducts: (input: unknown) => void;
+}) => {
   return (
-    <CardContainer>
+    <CardContainer onClick={() => setCartProducts([...cartProducts, product])}>
       <Header>{product.name}</Header>
       <Price>{`SGD $${product.price}`}</Price>
     </CardContainer>
