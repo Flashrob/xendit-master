@@ -12,7 +12,8 @@
     "migrate": "tsc && node ./dist/migrate.js",
     "migrate:no-build": "node ./dist/migrate.js",
     "test": "tsc && mocha",
-    "test:no-build": "mocha"
+    "test:no-build": "mocha",
+    "coverage": "nyc yarn test"
   },
   "keywords": [],
   "author": "",
@@ -55,6 +56,7 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "mocha": "^9.2.1",
     "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
     "prettier": "^2.5.1",
     "sequelize-fixtures": "^1.2.0",
     "should": "^13.2.3",

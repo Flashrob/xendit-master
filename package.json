@@ -8,7 +8,8 @@
     "build-api": "yarn --cwd api/ build",
     "dev-shop": "yarn --cwd shop/ dev",
     "build-shop": "yarn --cwd shop/ build",
-    "dev": "concurrently --kill-others \"yarn dev-api\" \"yarn dev-shop\""
+    "dev": "concurrently --kill-others \"yarn dev-api\" \"yarn dev-shop\"",
+    "test-api": "yarn --cwd api/ test"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,11 @@
   },
   "homepage": "https://github.com/Flashrob/xendit-master#readme",
   "devDependencies": {
-    "concurrently": "^7.0.0"
-  }
+    "concurrently": "^7.0.0",
+    "pre-push": "^0.1.1"
+  },
+  "pre-push": [
+    "build-api",
+    "test-api"
+  ]
 }
