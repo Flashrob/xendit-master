@@ -92,6 +92,13 @@ lodash@^4.17.21:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
+pre-push@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/pre-push/-/pre-push-0.1.1.tgz#2a2a79827d243a76c91089897ac707f45e716aac"
+  integrity sha1-Kip5gn0kOnbJEImJescH9F5xaqw=
+  dependencies:
+    shelljs "0.3.x"
+
 require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
@@ -103,6 +110,11 @@ rxjs@^6.6.3:
   integrity sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ==
   dependencies:
     tslib "^1.9.0"
+
+shelljs@0.3.x:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.3.0.tgz#3596e6307a781544f591f37da618360f31db57b1"
+  integrity sha1-NZbmMHp4FUT1kfN9phg2DzHbV7E=
 
 spawn-command@^0.0.2-1:
   version "0.0.2-1"
