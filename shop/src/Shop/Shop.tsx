@@ -1,29 +1,57 @@
-import { Category } from '../common/models/Category';
-import { useCategories } from './categories';
+import { useEffect, useState } from 'react';
+import { makeCategoryDropdownOptions, useCategories } from './categories';
+import { useProducts } from './products';
 import { Container, Headline, Title, Paragraph, Select } from './Shop.sc';
-
-const makeCategoryDropdownOptions = (categories: Category[]) => {
-  return categories.map((category) => (
-    <option value={category.id} key={category.name}>
-      {category.name}
-    </option>
-  ));
-};
 
 export const Shop = () => {
   const categories = useCategories();
-  if (!categories) return <div>Loading...</div>;
+  const [selectedCategoryId, setSelectedCategoryId] = useState<number>(
+    categories[0]?.id,
+  );
+
+  const { products, fetch: refetch } = useProducts(selectedCategoryId);
 
   const categoryOptions = makeCategoryDropdownOptions(categories);
+
+  useEffect(
+    function setInitialCategory() {
+      if (categories.length && !selectedCategoryId) {
+        setSelectedCategoryId(categories[0].id);
+      }
+    },
+    [categories, selectedCategoryId, refetch],
+  );
+
+  useEffect(
+    function refetchProductsOnCategoryChange() {
+      refetch();
+    },
+    [selectedCategoryId, refetch],
+  );
+
+  if (!categories.length || !products)
+    return (
+      <Container>
+        <Headline>
+          <Title>XenElectronic Shop</Title>
+          <Paragraph>Loading...</Paragraph>
+        </Headline>
+      </Container>
+    );
+
   return (
     <Container>
       <Headline>
         <Title>XenElectronic Shop</Title>
         <Paragraph>Please select a product category</Paragraph>
       </Headline>
-      <Select onChange={(e) => console.log(e.target.value)}>
+      <Select
+        defaultValue={selectedCategoryId}
+        onChange={(e) => setSelectedCategoryId(Number(e.target.value))}
+      >
         {categoryOptions}
       </Select>
+      {products && products.map((product) => <p>{product.name}</p>)}
     </Container>
   );
 };
