@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 
 import * as bodyParser from 'body-parser';
+import cors from 'cors';
 import express from 'express';
 import { InversifyExpressServer } from 'inversify-express-utils';
 import * as swagger from 'swagger-express-ts';
@@ -17,6 +18,7 @@ SequelizeService.start(sequelize);
 const server = new InversifyExpressServer(container);
 
 server.setConfig((app) => {
+  app.use(cors());
   app.use(bodyParser.json());
   app.use('/api-docs/swagger', express.static('swagger'));
   app.use(
