@@ -10,7 +10,7 @@ export const createTestSequelizeInstance = async () => {
   const db_pwd: string = config.get('postgres.pwd');
 
   const sequelize = new Sequelize({
-    database: 'arcfront_test',
+    database: 'xendit_test',
     username: db_user,
     password: db_pwd,
     dialect: 'postgres',

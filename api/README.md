@@ -22,7 +22,8 @@
 ## Setting up the DB
 
 1. Create a `local.yml` file from `local.yml.example` in `config` directory
-2. Create a new DB by running `createdb <DB name> -U <your username>`
+2. Create a new DB by running `createdb xendit -U <your username>`
+3. Create the test DB by running `createdb xendit_test -U <your username>`
 3. Add your credentials to the `local.yml` files
 4. Run `CREATE EXTENSION pgcrypto;` in psql
 5. Exist psql and run `yarn migrate up` once your DB is setup and the credential files are in order
