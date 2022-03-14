@@ -25,7 +25,7 @@ import OrderProduct from '../../Order/persistence/OrderProduct';
 class Product extends Model {
   @PrimaryKey
   @AllowNull(false)
-  @Column(DataType.INTEGER)
+  @Column({ autoIncrement: true, type: DataType.INTEGER })
   @ApiModelProperty({
     description: 'Id of a product',
     required: true,

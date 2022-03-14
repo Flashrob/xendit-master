@@ -22,7 +22,7 @@ import OrderProduct from './OrderProduct';
 class Order extends Model {
   @PrimaryKey
   @AllowNull(false)
-  @Column(DataType.INTEGER)
+  @Column({ autoIncrement: true, type: DataType.INTEGER })
   @ApiModelProperty({
     description: 'Id of an order',
     required: true,

@@ -21,7 +21,7 @@ import Product from '../../Product/persistence/Product';
 class Category extends Model {
   @PrimaryKey
   @AllowNull(false)
-  @Column(DataType.INTEGER)
+  @Column({ autoIncrement: true, type: DataType.INTEGER })
   @ApiModelProperty({
     description: 'Id of a category',
     required: true,
