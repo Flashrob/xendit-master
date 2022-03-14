@@ -5,6 +5,9 @@
 - Please check the working doc
    `https://tinyurl.com/bdfssez6`
 
+- After running the API, can also check out 
+   `localhost:3000/api-docs/swagger`
+
 ## Prerequisites
 
 1. Installed node
