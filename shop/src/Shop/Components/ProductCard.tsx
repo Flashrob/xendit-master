@@ -9,18 +9,26 @@ const CardContainer = styled.div`
   justify-content: center;
   background-color: #ffffff;
   margin: 20px auto;
-  padding: 10px;
+  border-radius: 20px;
+  background-color: #00ADF2;
 `;
 
 const Header = styled.h1`
-  color: #1d3ca2;
+  padding: 0 10px 0 10px;
+  color: #ffffff;
   font-weight: 600;
   font-family: Montserrat;
   text-align: center;
+  margin-bottom: 0;
 `;
 
 const Price = styled.p`
   font-size: 16px;
+  width: 100%;
+  background-color: #ffffff;
+  line-height: 2;
+  text-align: center;
+  font-weight: 600;
 `;
 
 const AddToCartButton = styled.button`
@@ -30,11 +38,13 @@ const AddToCartButton = styled.button`
   color: #ffffff;
   padding: 18px 25px;
   font-size: 16px;
+  font-weight: 600;
 
   &:hover {
     transform: scale(0.97);
     box-shadow: 0 3px 6px 0 rgb(26 51 130 / 20%);
   }
+  margin-bottom: 10px;
 `;
 
 export const ProductCard = ({

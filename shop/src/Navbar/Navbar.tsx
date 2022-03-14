@@ -51,6 +51,8 @@ const MenuWrapper = styled.div`
 
 const Link = styled.a`
   margin-right: 20px;
+  color: #ffffff;
+  text-decoration-color: #ff9900;
 
   @media (max-width: 374px) {
     margin-bottom: 10px;
