@@ -11,7 +11,8 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #4373fc;
+  background-color: transparent;
+  background-image: linear-gradient(135deg, #457ef3 0%, #2EB1BB 70%);
 `;
 
 ReactDOM.render(
