@@ -10,6 +10,7 @@ import {
   NoItems,
   CheckoutButton,
 } from './Cart.sc';
+import { createOrder } from './createOrder';
 import { makeCartItems } from './makeCartItems';
 
 export const Cart = () => {
@@ -28,7 +29,15 @@ export const Cart = () => {
           <>
             <div>{cartItems}</div>
             <Total>Total: {totalBill}</Total>
-            <CheckoutButton onClick={() => navigate('/payment')}>
+            <CheckoutButton
+              onClick={async () => {
+                const order = await createOrder(cartProducts);
+                navigate('/payment', {
+                  state: { orderId: order.id, total: totalBill },
+                });
+                localStorage.removeItem('products');
+              }}
+            >
               Checkout
             </CheckoutButton>
           </>
