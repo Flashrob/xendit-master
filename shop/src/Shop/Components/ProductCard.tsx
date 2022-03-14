@@ -1,5 +1,6 @@
 import { Product } from '../../common/models/Product';
 import styled from 'styled-components';
+import { message } from 'antd';
 
 const CardContainer = styled.div`
   width: fit-content;
@@ -10,7 +11,7 @@ const CardContainer = styled.div`
   background-color: #ffffff;
   margin: 20px auto;
   border-radius: 20px;
-  background-color: #00ADF2;
+  background-color: #00adf2;
 `;
 
 const Header = styled.h1`
@@ -61,7 +62,10 @@ export const ProductCard = ({
       <Header>{product.name}</Header>
       <Price>{`SGD $${product.price}`}</Price>
       <AddToCartButton
-        onClick={() => setCartProducts([...cartProducts, product])}
+        onClick={() => {
+          setCartProducts([...cartProducts, product]);
+          message.success(`${product.name} added to cart`, 1);
+        }}
       >
         Add To Cart
       </AddToCartButton>

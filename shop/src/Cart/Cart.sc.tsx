@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 
+const Container = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 50px;
+  gap: 20px;
+
+  background-color: transparent;
+  background-image: linear-gradient(135deg, #457ef3 0%, #2EB1BB 70%);
+`;
+
 const Headline = styled.div`
   display: flex;
   justify-content: center;
@@ -11,14 +23,7 @@ const Headline = styled.div`
 const Title = styled.h1`
   color: #ffffff;
 `;
-const Container = styled.div`
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding-bottom: 50px;
-  gap: 20px;
-`;
+
 const Paragraph = styled.p`
   font-size: 16px;
   color: #ffffff;
