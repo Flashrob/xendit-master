@@ -1,0 +1,27 @@
+[
+    {
+    "model": "Category",
+    "data": 
+        {
+            "id": 1,
+            "name": "cables"
+        }
+    },
+    {
+    "model": "Category",
+    "data": 
+        {
+            "id": 2,
+            "name": "tvs"
+        }
+    },
+    {
+    "model": "Category",
+    "data": 
+        {
+            "id": 3,
+            "name": "gaming"
+        }
+    }
+    
+]
