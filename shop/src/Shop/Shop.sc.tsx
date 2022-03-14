@@ -29,6 +29,10 @@ const Paragraph = styled.p`
 const Select = styled.select`
   width: fit-content;
   margin: 0 auto;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
 `;
 
 export { Container, Headline, Title, Paragraph, Select };
