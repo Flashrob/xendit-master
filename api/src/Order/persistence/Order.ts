@@ -1,8 +1,8 @@
 import {
   AllowNull,
+  BelongsToMany,
   Column,
   DataType,
-  HasMany,
   Model,
   PrimaryKey,
   Table,
@@ -10,33 +10,25 @@ import {
 import { ApiModel, ApiModelProperty } from 'swagger-express-ts';
 
 import Product from '../../Product/persistence/Product';
+import OrderProduct from './OrderProduct';
 
 @ApiModel({
-  description: 'Category model',
-  name: 'Category',
+  description: 'Order model',
+  name: 'Order',
 })
 @Table({
   schema: 'public',
 })
-class Category extends Model {
+class Order extends Model {
   @PrimaryKey
   @AllowNull(false)
   @Column({ autoIncrement: true, type: DataType.INTEGER })
   @ApiModelProperty({
-    description: 'Id of a category',
+    description: 'Id of an order',
     required: true,
     example: 1,
   })
   id!: number;
-
-  @AllowNull(false)
-  @Column(DataType.STRING)
-  @ApiModelProperty({
-    description: 'name of a category',
-    required: true,
-    example: 'cables',
-  })
-  name!: string;
 
   @AllowNull(false)
   @Column(DataType.DATE)
@@ -54,8 +46,8 @@ class Category extends Model {
   })
   updatedAt!: Date;
 
-  @HasMany(() => Product)
+  @BelongsToMany(() => Product, () => OrderProduct)
   Products!: Product[];
 }
 
-export default Category;
+export default Order;

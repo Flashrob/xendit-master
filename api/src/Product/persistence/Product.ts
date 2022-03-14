@@ -1,6 +1,7 @@
 import {
   AllowNull,
   BelongsTo,
+  BelongsToMany,
   Column,
   DataType,
   ForeignKey,
@@ -11,6 +12,8 @@ import {
 import { ApiModel, ApiModelProperty } from 'swagger-express-ts';
 
 import Category from '../../Category/persistence/Category';
+import Order from '../../Order/persistence/Order';
+import OrderProduct from '../../Order/persistence/OrderProduct';
 
 @ApiModel({
   description: 'Product model',
@@ -22,7 +25,7 @@ import Category from '../../Category/persistence/Category';
 class Product extends Model {
   @PrimaryKey
   @AllowNull(false)
-  @Column(DataType.INTEGER)
+  @Column({ autoIncrement: true, type: DataType.INTEGER })
   @ApiModelProperty({
     description: 'Id of a product',
     required: true,
@@ -75,6 +78,9 @@ class Product extends Model {
 
   @BelongsTo(() => Category)
   Category!: Category;
+
+  @BelongsToMany(() => Order, () => OrderProduct)
+  Orders!: Order[];
 }
 
 export default Product;

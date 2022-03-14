@@ -1,0 +1,32 @@
+[
+    {
+    "model": "Product",
+    "data": 
+        {
+            "CategoryId": 1,
+            "id": 1,
+            "name": "HDMI",
+            "price": 5
+        }
+    },
+    {
+    "model": "Product",
+    "data": 
+        {
+            "CategoryId": 1,
+            "id": 2,
+            "name": "USB",
+            "price": 5
+        }
+    },
+    {
+    "model": "Product",
+    "data": 
+        {
+            "CategoryId": 1,
+            "id": 3,
+            "name": "Mini-USB",
+            "price": 5
+        }
+    }
+]

@@ -2,41 +2,54 @@ import {
   AllowNull,
   Column,
   DataType,
-  HasMany,
+  ForeignKey,
   Model,
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
 import { ApiModel, ApiModelProperty } from 'swagger-express-ts';
 
+import Order from '../../Order/persistence/Order';
 import Product from '../../Product/persistence/Product';
 
 @ApiModel({
-  description: 'Category model',
-  name: 'Category',
+  description: 'OrderProduct model',
+  name: 'OrderProduct',
 })
 @Table({
   schema: 'public',
 })
-class Category extends Model {
+class OrderProduct extends Model {
   @PrimaryKey
+  @ForeignKey(() => Order)
   @AllowNull(false)
-  @Column({ autoIncrement: true, type: DataType.INTEGER })
+  @Column(DataType.INTEGER)
   @ApiModelProperty({
-    description: 'Id of a category',
+    description: 'id of an Order',
     required: true,
     example: 1,
   })
-  id!: number;
+  OrderId!: number;
+
+  @PrimaryKey
+  @ForeignKey(() => Product)
+  @AllowNull(false)
+  @Column(DataType.INTEGER)
+  @ApiModelProperty({
+    description: 'id of a Product',
+    required: true,
+    example: 1,
+  })
+  ProductId!: number;
 
   @AllowNull(false)
-  @Column(DataType.STRING)
+  @Column(DataType.INTEGER)
   @ApiModelProperty({
-    description: 'name of a category',
+    description: 'quantity of the associated product',
     required: true,
-    example: 'cables',
+    example: 5,
   })
-  name!: string;
+  quantity!: number;
 
   @AllowNull(false)
   @Column(DataType.DATE)
@@ -53,9 +66,6 @@ class Category extends Model {
     required: true,
   })
   updatedAt!: Date;
-
-  @HasMany(() => Product)
-  Products!: Product[];
 }
 
-export default Category;
+export default OrderProduct;

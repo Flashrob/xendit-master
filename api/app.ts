@@ -1,10 +1,9 @@
 import 'reflect-metadata';
 
-import * as bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
 import { InversifyExpressServer } from 'inversify-express-utils';
-import sqlinjection from 'sql-injection';
+import sqlSanitizer from 'sql-sanitizer';
 import * as swagger from 'swagger-express-ts';
 
 import { createSequelizeInstance } from './config/sequelize';
@@ -19,9 +18,15 @@ SequelizeService.start(sequelize);
 const server = new InversifyExpressServer(container);
 
 server.setConfig((app) => {
-  app.use(sqlinjection); // tests included in package https://github.com/ghafran/sql-injection/blob/master/test/index.js
+  app.use(
+    express.urlencoded({
+      extended: true,
+    }),
+  );
+  app.use(express.json());
+
   app.use(cors());
-  app.use(bodyParser.json());
+  app.use(sqlSanitizer); // tests included in original package https://github.com/vymarkov/sql-injection
   app.use('/api-docs/swagger', express.static('swagger'));
   app.use(
     '/api-docs/swagger/assets',
